@@ -33,7 +33,7 @@ process_options(Pid,[Opt|Opts]) ->
 
 init(Pid) ->
     process_flag(trap_exit,true),
-    Port = open_port({spawn,"/home/share/jb/work/monark/priv/serial -erlang"},
+    Port = open_port({spawn,priv_dir()++"/serial -erlang"},
                      [binary,{packet,2}]),
     loop(Pid,Port).
 
